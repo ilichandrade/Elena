@@ -14,8 +14,8 @@ jobs:
       - name: Fictional world files
         run: |
           mkdir -p fictional-world-files
-          cp zipped_version.zip fictional-world-files/
-          cp countries.png fictional-world-files/
+          cp FictionalWorld/zipped_version.zip fictional-world-files/
+          cp FictionalWorld/countries.png fictional-world-files/
 
       - name: Upload FW artifact
         uses: actions/upload-artifact@v4
