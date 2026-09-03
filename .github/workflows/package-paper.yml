@@ -1,0 +1,28 @@
+name: Package paper files
+
+on:
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Package paper
+        run: |
+          mkdir -p paper-package
+          cp PAPER_FONDEF_CA.pdf paper-package/
+          cp main.pdf paper-package/
+          cp main.tex paper-package/
+          cp Figure_*.png paper-package/
+          cp Annex_*.png paper-package/
+
+      - name: Upload paper artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-package
+          path: paper-package/
+          retention-days: 5
